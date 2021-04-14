@@ -1,6 +1,6 @@
 import React from 'react';
-import 
-import Provider from './provider'
+import stateProvider from './context';
+import Provider from './provider';
 
 
 function ContextAPI() {
