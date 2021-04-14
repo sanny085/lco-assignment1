@@ -2,6 +2,25 @@ import React from 'react';
 import stateProvider from './context';
 import Provider from './provider';
 
+const Agents = () =>{
+  return(<AgentOne/>);
+}
+const AgentOne = () =>{
+  return(<AgentTwo/>);
+}
+const AgentTwo = () =>{
+  return(<AgentThree/>);
+}
+const AgentThree = () =>{
+  return(<AgentBond/>);
+}
+const AgentBond = () =>{
+  return(<stateProvider>
+
+<stateProvider/>
+);
+}
+
 
 function ContextAPI() {
     return (
