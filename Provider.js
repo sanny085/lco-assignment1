@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import StateContext from './Context';
 
-
 const Provider = (props) => {
+  
     const[mission, setMission] = useState({
         name : 'Marriage Hall',
         team : '007',
@@ -14,8 +14,7 @@ const Provider = (props) => {
         team : '009',
         accept : 'Not Accepted'
     });
-
-    return (
+ return (
       <React.Fragment>
          <StateContext.Provider value={{
               data: mission,
@@ -24,7 +23,7 @@ const Provider = (props) => {
               },
               data1:mission1,
               isMissionAccepted1: () =>{
-                setMission1({...mission1, name:"Movie Hall changed"})
+                setMission1({...mission1, name:"Movie Hall changed", accept: "Team Dismissed"})
               }
           }}>
             {props.children}
