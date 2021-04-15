@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import StateContext from './Context';
 import Provider from './Provider';
  
-
 const Agents = () => {
   return (<AgentOne/>)
 }
@@ -18,6 +17,10 @@ const AgentTwo = () => {
 const AgentFinal = () => {
   const [visible, setVisible] = useState(false);
   
+  const checkAnswer = () => {
+    setVisible(true);
+  }
+
   return (
     <StateContext.Consumer>
      {
@@ -26,10 +29,8 @@ const AgentFinal = () => {
           <div className="row justify-content-center">
             <div class="col-md-6 col-lg-4 mb-5">
               <h3 className="text-dark">{contxt.data.name}</h3> 
-               <span className="m-3">{visible ? contxt.data.accept : " "}</span><br/>
-              <button class="btn btn-outline-primary btn-sm" onClick={ () => {
-                                       {setVisible(true) && contxt.isMissionAccepted }
-                                     }} type="submit"> 
+               <span className="m-3">{visible ? contxt.data.accept : "" }</span><br/>
+              <button class="btn btn-outline-primary btn-sm" onClick={(checkAnswer && contxt.isMissionAccepted)} type="submit"> 
                     <h3 className="text-dark">Check Status</h3> 
               </button>
             </div>
