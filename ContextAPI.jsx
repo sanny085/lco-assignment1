@@ -3,24 +3,29 @@ import React, { useState } from 'react';
 import StateContext from './Context';
 import Provider from './Provider';
  
+
 const Agents = () => {
   return (<AgentOne/>)
-}
+};
 const AgentOne = () => {
   return (<AgentTwo/>)
-}
+};
 const AgentTwo = () => {
   return (<AgentFinal/>)
-}
-
-
+};
 const AgentFinal = () => {
   const [visible, setVisible] = useState(false);
-  
-  const checkAnswer = () => {
-    setVisible(true);
-  }
+  const [visible1, setVisible1] = useState(false);
 
+const checkAnswer1 = () => {
+    setVisible(true); 
+    console.log('Hello 1');
+  };
+  const checkAnswer2 = () => {
+    setVisible1(true); 
+    console.log('Hello 2');
+  };
+   
   return (
     <StateContext.Consumer>
      {
@@ -28,16 +33,17 @@ const AgentFinal = () => {
          <React.Fragment>
           <div className="row justify-content-center">
             <div class="col-md-6 col-lg-4 mb-5">
+     
               <h3 className="text-dark">{contxt.data.name}</h3> 
-               <span className="m-3">{visible ? contxt.data.accept : "" }</span><br/>
-              <button class="btn btn-outline-primary btn-sm" onClick={(checkAnswer && contxt.isMissionAccepted)} type="submit"> 
+               <span className="m-3">{visible ? contxt.data.accept : " "}</span><br/>
+              <button className="btn btn-outline-primary btn-sm" onClick={() => (checkAnswer1(), contxt.isMissionAccepted())}  type="submit"> 
                     <h3 className="text-dark">Check Status</h3> 
               </button>
             </div>
             <div class="col-md-6 col-lg-4 mb-5">
               <h3 className="text-dark">{contxt.data1.name}</h3> 
-               <span className="m-3">{contxt.data1.accept}</span><br/>
-              <button class="btn btn-outline-primary btn-sm" onClick={contxt.isMissionAccepted1} type="submit"> 
+               <span className="m-3">{visible1 ? contxt.data1.accept : " "}</span><br/>
+              <button class="btn btn-outline-primary btn-sm" onClick={() => (checkAnswer2(), contxt.isMissionAccepted1())} type="submit"> 
                     <h3 className="text-dark">Check Status</h3> 
               </button>
             </div>
@@ -48,6 +54,7 @@ const AgentFinal = () => {
     </StateContext.Consumer>
   )
 }
+
 
 function ContextAPI() {
     return (
