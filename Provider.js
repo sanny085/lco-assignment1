@@ -13,8 +13,7 @@ const Provider = (props) => {
         team : '009',
         accept : 'Not Accepted'
     });
-
-    return (
+ return (
       <React.Fragment>
          <StateContext.Provider value={{
               data: mission,
