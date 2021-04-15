@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 
 import StateContext from './Context';
 
-
 const Provider = (props) => {
     const[mission, setMission] = useState({
         name : 'Marriage Hall',
@@ -24,7 +23,7 @@ const Provider = (props) => {
               },
               data1:mission1,
               isMissionAccepted1: () =>{
-                setMission1({...mission1, name:"Movie Hall changed"})
+                setMission1({...mission1, name:"Movie Hall changed", accept: "Team Dismissed"})
               }
           }}>
             {props.children}
