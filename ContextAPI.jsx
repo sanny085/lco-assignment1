@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import StateContext from './Context';
 import Provider from './Provider';
  
+
 const Agents = () => {
   return (<AgentOne/>)
 }
@@ -12,6 +13,7 @@ const AgentOne = () => {
 const AgentTwo = () => {
   return (<AgentFinal/>)
 }
+
 
 const AgentFinal = () => {
   const [visible, setVisible] = useState(false);
@@ -26,9 +28,8 @@ const AgentFinal = () => {
               <h3 className="text-dark">{contxt.data.name}</h3> 
                <span className="m-3">{visible ? contxt.data.accept : " "}</span><br/>
               <button class="btn btn-outline-primary btn-sm" onClick={ () => {
-                                       checkAns {setVisible(true)}
-                                       (visible ? contxt.isMissionAccepted : " ")}
-                                     } type="submit"> 
+                                       {setVisible(true) && contxt.isMissionAccepted }
+                                     }} type="submit"> 
                     <h3 className="text-dark">Check Status</h3> 
               </button>
             </div>
@@ -63,3 +64,4 @@ function ContextAPI() {
     )
 }
 export default ContextAPI;
+
