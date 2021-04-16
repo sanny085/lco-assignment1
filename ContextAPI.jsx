@@ -15,7 +15,6 @@ const AgentTwo = () => {
 };
 
 
-
 const AgentFinal = () => {
   const [visible, setVisible] = useState(false);
   const [visible1, setVisible1] = useState(false);
@@ -75,4 +74,3 @@ function ContextAPI() {
     )
 }
 export default ContextAPI;
-
