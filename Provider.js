@@ -14,7 +14,7 @@ const Provider = (props) => {
         team : '009',
         accept : 'Not Accepted'
     });
- return (
+ return(
       <React.Fragment>
          <StateContext.Provider value={{
               data: mission,
@@ -22,8 +22,8 @@ const Provider = (props) => {
                 setMission({...mission, name: "Marriage Hall Booked", accept: "ACCEPTED TEAM"});
               },
               data1:mission1,
-              isMissionAccepted1: () =>{
-                setMission1({...mission1, name:"Movie Hall changed", accept: "Team Dismissed"})
+              isMissionAccepted1: () => {
+                setMission1({...mission1, name:"Movie Hall changed", accept: "Team Dismissed"});
               }
           }}>
             {props.children}
@@ -31,5 +31,4 @@ const Provider = (props) => {
      </React.Fragment>
     )
 }
-
 export default Provider;
