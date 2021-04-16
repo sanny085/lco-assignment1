@@ -1,5 +1,5 @@
-import React, { createContext } from 'react';
+import  { createContext } from 'react';
 
-const StateContext = createContext();
+const StateContext = createContext(["light", () =>{}]);
 
 export default StateContext;
