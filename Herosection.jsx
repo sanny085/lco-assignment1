@@ -3,10 +3,10 @@ import React, {useContext} from 'react';
 import StateContext from './Context';
 import AppTheme from './Color';
 
-function Herosection() {
+const Herosection = () => {
     const theme = useContext(StateContext) [0];
     const currTheme = AppTheme[theme]; 
-    return (
+    return(
         <div>
             <h1>Context API Theme Toggler</h1>
             <p>This is dummy text to check dark mode</p>
