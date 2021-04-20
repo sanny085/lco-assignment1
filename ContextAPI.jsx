@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import StateContext from './Context';
 import Provider from './Provider';
  
-
 const Agents = () => {
   return (<AgentOne/>)
 };
