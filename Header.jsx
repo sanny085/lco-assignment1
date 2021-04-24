@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 /*import avataaars from '../src/assets/images/avataaars.svg';*/
+ 
 
 import Axios from 'axios';
 
@@ -8,18 +9,19 @@ const Header = () => {
 
    const fetchDetails = async () => {
         const response = await Axios.get('https://randomuser.me/api/');
+        console.log(response);
         const open = response.data;
-      
+        const detailsCom = open.results.[0]; 
         setDetails({
-            image : open.results.[0].picture.large,
-            title : open.results.[0].name.title,
-            fname : open.results.[0].name.first,
-            lname : open.results.[0].name.last,
-            city : open.results.[0].location.city,
-            state : open.results.[0].location.state,
-            country : open.results.[0].location.country,
+            image : detailsCom.picture.large,
+            title : detailsCom.name.title,
+            fname : detailsCom.name.first,
+            lname : detailsCom.name.last,
+            city : detailsCom.location.city,
+            state : detailsCom.location.state,
+            country : detailsCom.location.country,
            });
-      console.log(open.results.[0] );
+      /*console.log(open.results.[0] );*/
   }
 
    useEffect( ()=>{
@@ -37,10 +39,10 @@ const Header = () => {
             
                 <div className="divider-custom divider-light">
                     <div className="divider-custom-line"></div>
-                    <div className="divider-custom-icon"><i className="fas fa-star"></i></div>
+                    <div className="divider-custom-icon"><i className="fas fa-map-marker-alt"></i></div>
                     <div className="divider-custom-line"></div>
                 </div>
-           
+          
                 <p className="masthead-subheading font-weight-light mb-0">{details.city}, {details.state}, ({details.country})</p>
             </div>
         </header>
