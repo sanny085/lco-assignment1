@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 
 import StateContext from './Context';
-
 const ThemeToggler = () => {
    const [themeMode, setThemeMode] = useContext(StateContext);
    console.log(themeMode+"User set 1");
@@ -11,5 +10,4 @@ const ThemeToggler = () => {
         </div>
     );
 };
-
 export default ThemeToggler;
