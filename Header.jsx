@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 /*import avataaars from '../src/assets/images/avataaars.svg';*/
  
-
 import Axios from 'axios';
 
 const Header = () => {
@@ -28,7 +27,6 @@ const Header = () => {
     fetchDetails();
     },[]);
 
-
     return (
      <div>
         {/*-- Masthead--*/}
@@ -50,6 +48,5 @@ const Header = () => {
      </div>
     )
 }
-
 export default Header;
 
