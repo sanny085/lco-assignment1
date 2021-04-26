@@ -1,7 +1,7 @@
 import React, {useState}  from 'react'
 
 import StateContext from './Context';
-import HThemeToggler from './HThemeToggler';
+import ThemeToggler from './ThemeToggler';
 import Herosection from './Herosection';
 
 const DarkLight = ()=> {
@@ -11,7 +11,7 @@ const DarkLight = ()=> {
         <div>
             {/*Dark & light Mode*/}
             <StateContext.Provider value={themeHook}>  
-               <HThemeToggler/>
+               <ThemeToggler/>
                <Herosection/>
              </StateContext.Provider>
             {/*End Dark & light Mode*/}
@@ -19,4 +19,3 @@ const DarkLight = ()=> {
     )
 }
 export default DarkLight;
-
