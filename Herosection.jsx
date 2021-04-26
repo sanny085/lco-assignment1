@@ -4,7 +4,9 @@ import StateContext from './Context';
 import AppTheme from './Color';
 
 const Herosection = () => {
-    const theme = useContext(StateContext) [0] ;
+    const [themeMode, setThemeMode] = useContext(StateContext);
+
+    const theme = useContext(StateContext)[0] ;
     const currTheme = AppTheme[theme]; 
 
     const [change, setChange] = useState({currTheme});
@@ -13,15 +15,15 @@ const Herosection = () => {
    
     return(
         <div style={{ padding: "1rem",
-                      backgroundColor: `${change.currTheme.backgroundColor}`,
-                      color: `${change.currTheme.textColor}`,
+                      backgroundColor: `${currTheme.backgroundColor}`,
+                      color: `${currTheme.textColor}`,
                       textAlign: "center",
-                      border:`${change.currTheme.border}`
+                      border:`${currTheme.border}`
                       }} >
             <h1>Context API Theme Toggler</h1>
             <p>This is dummy text to check dark mode</p>
 
-            <button onClick={ () => {setChange(change.currTheme === "light" ? "dark" : "light")} } style={{backgroundColor:"green",
+            <button onClick={ () => {setThemeMode(themeMode === "light" ? "dark" : "light")} } style={{backgroundColor:"green",
                             padding:"10px 150px",
                             fontSize: "20px",
                             color: "#fff"
