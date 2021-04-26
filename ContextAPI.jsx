@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import StateContext from './Context';
 import Provider from './Provider';
- 
+import AppTheme from './Color';
 
-const Agents = () => {
-  return (<AgentOne/>)
+const Agents = ({color}) => {
+  return (<AgentOne color={color}/>)
 };
-const AgentOne = () => {
-  return (<AgentTwo/>)
+const AgentOne = ({color}) => {
+  return (<AgentTwo color={color}/>)
 };
-const AgentTwo = () => {
-  return (<AgentFinal/>)
+const AgentTwo = ({color}) => {
+  return (<AgentFinal color={color}/>)
 };
 
 
-const AgentFinal = () => {
+const AgentFinal = ({color}) => {
+
+
   const [visible, setVisible] = useState(false);
   const [visible1, setVisible1] = useState(false);
 
@@ -33,20 +35,20 @@ const AgentFinal = () => {
      {
        (contxt) =>  (
          <React.Fragment>
-          <div className="row justify-content-center">
-            <div class="col-md-6 col-lg-4 mb-5">
+          <div  className="row justify-content-center m-0" >
+            <div className="col-md-6 col-lg-4 mb-5">
      
-              <h3 className="text-dark">{contxt.data.name}</h3> 
-               <span className="m-3">{visible ? contxt.data.accept : " "}</span><br/>
+              <h3 className="text"  style={{color:`${color}`}}>{contxt.data.name}</h3> 
+               <span className="m-3  ">{visible ? contxt.data.accept : " "}</span><br/>
               <button className="btn btn-outline-primary btn-sm" onClick={() => ( checkAnswer1(), contxt.isMissionAccepted())}  type="submit"> 
-                    <h3 className="text-dark">Check Status</h3> 
+                    <h3 className="text"  style={{color:`${color}`}}>Check Status</h3> 
               </button>
             </div>
-            <div class="col-md-6 col-lg-4 mb-5">
-              <h3 className="text-dark">{contxt.data1.name}</h3> 
+            <div className="col-md-6 col-lg-4 mb-5">
+              <h3 className="text"  style={{color:`${color}`}}>{contxt.data1.name}</h3> 
                <span className="m-3">{visible1 ? contxt.data1.accept : " "}</span><br/>
-              <button class="btn btn-outline-primary btn-sm" onClick={() => ( checkAnswer2(), contxt.isMissionAccepted1())} type="submit"> 
-                    <h3 className="text-dark">Check Status</h3> 
+              <button className="btn btn-outline-primary btn-sm" onClick={() => ( checkAnswer2(), contxt.isMissionAccepted1())} type="submit"> 
+                    <h3 className="text"  style={{color:`${color}`}}>Check Status</h3> 
               </button>
             </div>
           </div>
@@ -57,15 +59,24 @@ const AgentFinal = () => {
   )
 }
 
-
 function ContextAPI() {
+  
+  const theme = useContext(StateContext)[0] ;
+  const currTheme = AppTheme[theme]; 
+  console.log("contextApI page : "+ currTheme.backgroundColor);
+
     return (
       <React.Fragment>
-        <section class="page-section portfolio" id="portfolio">
-           <div class="container">
-             
+        <section className="page-section portfolio p-0" id="portfolio">
+           <div className="container-fluid m-0" style={{ padding: "1rem",
+                      backgroundColor: `${currTheme.backgroundColor}`,
+                      color: `${currTheme.textColor}`,
+                      textAlign: "center",
+                      border:`${currTheme.border}`
+                      }}>
+              
              <Provider>
-                <Agents/>
+                <Agents color={`${currTheme.textColor}`}/>
              </Provider>  
             
            </div> 
