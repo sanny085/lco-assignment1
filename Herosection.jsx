@@ -12,7 +12,6 @@ const Herosection = () => {
     const [change, setChange] = useState({currTheme});
     
    console.log(`${change.currTheme.backgroundColor}`+" this 89");
-   
     return(
         <div style={{ padding: "1rem",
                       backgroundColor: `${currTheme.backgroundColor}`,
