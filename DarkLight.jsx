@@ -11,7 +11,7 @@ const DarkLight = ()=> {
         <div>
             {/*Dark & light Mode*/}
             <StateContext.Provider value={themeHook}>  
-               <ThemeToggler/>
+               <ThemeToggler/> 
                <Herosection/>
              </StateContext.Provider>
             {/*End Dark & light Mode*/}
@@ -19,3 +19,4 @@ const DarkLight = ()=> {
     )
 }
 export default DarkLight;
+
